@@ -1,8 +1,7 @@
 
 module.exports = function(sequelize, DataTypes) {
- var difficulty = sequelize.define("rental", {
-   id: DataTypes.STRING,
-   googleId: DataTypes.STRING,
+ var rental = sequelize.define("rental", {
+   google_id: DataTypes.STRING,
    rental: DataTypes.BOOLEAN
  });
  return rental;
