@@ -14,7 +14,7 @@ module.exports = function(app) {
   //todo: fill in these functions
 
   //todo: get all difficulties by googleId
-  app.get("/difficulty/:googleId", function(req, res) {
+  app.get("/api/difficulty/:googleId", function(req, res) {
 
   });
 
@@ -24,22 +24,22 @@ module.exports = function(app) {
   });
 
   //todo: get all rentals by googleId
-  app.get("/rental/:googleId", function(req, res) {
+  app.get("/api/rental/:googleId", function(req, res) {
 
   });
 
   //todo: create difficulty
-  app.post("/difficulty", function(req, res) {
+  app.post("/api/difficulty", function(req, res) {
 
   });
 
   //todo: create comment
-  app.post("/comment", function(req, res) {
+  app.post("/api/comment", function(req, res) {
 
   });
 
   //todo: create rental
-  app.post("/rental", function(req, res) {
+  app.post("/api/rental", function(req, res) {
 
   });
 
