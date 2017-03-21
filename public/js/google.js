@@ -1,7 +1,3 @@
-$(document).ready(function() {
-// latitude & longitude received from buttons
-var lat = -33.8670522;
-var lng = 151.1957362;
 
 // Calls placeDetail API after receiving place id from placeSearch
 // to get details on a specific place
@@ -33,8 +29,3 @@ function placeSearch(lat, lng) {
     placeDetail(placeId);
   });
 };// end placeSearch function
-
-// function Call
-placeSearch(lat, lng);
-
-});//ready.function
