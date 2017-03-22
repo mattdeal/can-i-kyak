@@ -1,5 +1,3 @@
-//todo: handle basic get / command html route
-
 //Dependencies
 var path = require("path");
 
@@ -7,7 +5,7 @@ var path = require("path");
 module.exports = function(app) {
 
   // default to home
-  app.use(function(req, res) {
+  app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "/../public/view.html"));
   });
 

@@ -15,7 +15,7 @@ module.exports = function(app) {
   //To get all difficulties by googleId
   app.get("/api/difficulty/:googleId", function(req, res) {
     
-    if (req.params.difficulty) {
+    if (req.params.googleId) {
       models.Difficulty.findAll({
         where: {
           googleId: req.params.googleId
@@ -27,9 +27,9 @@ module.exports = function(app) {
   });
 
   //To get all comments by googleId
-  app.get("/comment/:googleId", function(req, res) {
+  app.get("/api/comment/:googleId", function(req, res) {
 
-    if (req.params.comment) {
+    if (req.params.googleId) {
       models.Comment.findAll({
         where: {
           googleId: req.params.googleId
@@ -43,7 +43,7 @@ module.exports = function(app) {
   //To get all rentals by googleId
   app.get("/api/rental/:googleId", function(req, res) {
 
-    if (req.params.rental) {
+    if (req.params.googleId) {
       models.Rental.findAll({
         where: {
           googleId: req.params.googleId
