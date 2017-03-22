@@ -1,8 +1,8 @@
 
 module.exports = function(sequelize, DataTypes) {
- var difficulty = sequelize.define("difficulty", {
+ var Difficulty = sequelize.define("Difficulty", {
    googleId: DataTypes.STRING,
    difficulty: DataTypes.INTEGER
  });
- return difficulty;
+ return Difficulty;
 };
