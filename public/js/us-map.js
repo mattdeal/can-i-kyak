@@ -19,6 +19,8 @@ $(document).ready(function() {
 
         $("#text").text(data.name);
         console.log(data);
+
+        geocoder(data.name);
     }
   });
 
