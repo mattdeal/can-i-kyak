@@ -36,4 +36,9 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
+# Remove .DS_Store files
 .DS_Store
+
+# db configuration
+config/*
+

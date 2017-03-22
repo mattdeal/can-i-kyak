@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
- var comment = sequelize.define("comment", {
+ var Comment = sequelize.define("Comment", {
    googleId: DataTypes.STRING,
    comment: DataTypes.STRING
  });
- return comment;
+ return Comment;
 };
