@@ -1,7 +1,7 @@
 
 module.exports = function(sequelize, DataTypes) {
  var Difficulty = sequelize.define("Difficulty", {
-   googleId: DataTypes.STRING,
+   locationId: DataTypes.INTEGER,
    difficulty: DataTypes.INTEGER
  });
  return Difficulty;

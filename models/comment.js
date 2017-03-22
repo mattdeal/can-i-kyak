@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
  var Comment = sequelize.define("Comment", {
-   googleId: DataTypes.STRING,
+   locationId: DataTypes.INTEGER,
    comment: DataTypes.STRING
  });
  return Comment;
