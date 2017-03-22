@@ -1,7 +1,3 @@
-$(document).ready(function() {
-// latitude & longitude received from buttons
-var lat = -33.8670522;
-var lng = 151.1957362;
 
 // Calls placeDetail API after receiving place id from placeSearch
 // to get details on a specific place
@@ -21,12 +17,13 @@ function placeDetail(id) {
 // Calls placeSearch API  with lat & lng & return place id
 // used for placeDetail
 function placeSearch(lat, lng) {
-  var query = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lng + "&radius=500&type=restaurant&keyword=cruise&key=AIzaSyDAhGg64lKOYPK-6jEMFKqQlc2TSTHTI2M";
+  var query = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lng + "&radius=50000&type=park&keyword=kyak&key=AIzaSyDAhGg64lKOYPK-6jEMFKqQlc2TSTHTI2M";
 
   $.ajax({
     url: query,
     method: "GET"
   }).done(function(response) {
+    console.log(response);
     var placeId = response.results[0].place_id;
     console.log(placeId);
 
@@ -34,7 +31,29 @@ function placeSearch(lat, lng) {
   });
 };// end placeSearch function
 
-// function Call
-placeSearch(lat, lng);
 
-});//ready.function
+// Calls geocoder API to retrieve coordinates
+function geocoder(state) {
+  geocoder = new google.maps.Geocoder();
+
+  geocoder.geocode( { 'address': state}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+
+      var lat = results[0].geometry.location.lat();
+      var lng = results[0].geometry.location.lng();
+      dispLoc = results[0].formatted_address;
+      var placeID = results[0].place_id;
+      console.log(dispLoc);
+      console.log(placeID);
+
+      placeSearch(lat, lng);
+
+      console.log("lat: "+lat+" lng: "+ lng);
+      console.log(results);
+    }
+    else {
+      alert("Geocode was not successful for the following reason: " + status);
+    }
+  });
+
+};// end geocoder function
