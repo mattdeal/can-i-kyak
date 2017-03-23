@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+  //function for scanning database for places
+  function findPlaces(initials) {
+    $.get("/api/locations/" + initials, function(data) {
+      console.log(data);
+    });
+  };// end findPlaces function
+
   $('#map2').usmap({
     'stateStyles': {
       fill: '#025',
@@ -23,5 +30,8 @@ $(document).ready(function() {
         geocoder(data.name);
     }
   });
+
+
+
 
 });//end ready.function
