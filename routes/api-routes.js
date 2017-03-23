@@ -6,15 +6,11 @@ var models = require("../models");
 // Routes
 module.exports = function(app) {
 
-  // for testing purposes
-  app.post("/info", function(req,res) {
-    var test = "daniel";
-    res.json(test);
-  });//end app.post
+  
 
   //To get all difficulties by googleId
   app.get("/api/difficulty/:googleId", function(req, res) {
-    
+
     if (req.params.googleId) {
       models.Difficulty.findAll({
         where: {
