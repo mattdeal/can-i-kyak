@@ -27,7 +27,7 @@ app.use(express.static("./public"));
 // Routes =============================================================
 
 require("./routes/html-routes.js")(app);
-require("./routes/location-routes.js")(app);
+require("./routes/location-api-routes.js")(app);
 require("./routes/comment-api-routes.js")(app);
 require("./routes/difficulty-api-routes.js")(app);
 require("./routes/rental-api-routes.js")(app);
