@@ -32,6 +32,30 @@ require("./routes/comment-api-routes.js")(app);
 require("./routes/difficulty-api-routes.js")(app);
 require("./routes/rental-api-routes.js")(app);
 
+var sampleJson = [{
+	locationTitle: "sample location",
+	address: "sample address",
+	locationImg: "sample image url",
+	imageTitle: "sample image title in carousel",
+	comment: "sample comment",
+	description: "sample description",
+	rating: "sample rating",
+	attractions: "sample attractions",
+	difficulty: "sample.difficulty",
+	class: "sample class",
+	rapids: "sample rapids",
+	rental: "sample rental",
+	price: "sample price"
+}
+]
+
+// Setting up Handlebars with the server.
+
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs ({ defaultLayout: "main" })); //app listening to the handlebars engine 
+app.set("view engine", "handlebars");
+
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync( {force:true} ).then(function() {
 // db.sequelize.sync().then(function() {
