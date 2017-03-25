@@ -1,7 +1,6 @@
 {
   "development": {
     "username": "root",
-    "port": 8889,
     "password": "root",
     "database": "kyak_db",
     "host": "127.0.0.1",
@@ -9,16 +8,13 @@
   },
   "test": {
     "username": "root",
-    "password": "tester",
+    "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "use_env_variable":"JawsDB_URL",
     "dialect": "mysql"
   }
 }
