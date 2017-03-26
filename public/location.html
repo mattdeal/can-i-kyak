@@ -17,47 +17,37 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-  <link rel="stylesheet" href="assets/css/style.css" media="screen">
+  <link rel="stylesheet" href="assets/css/style.css">
 
+  <link rel="stylesheet" href="assets/css/location.css">
   <script src="assets/js/carousel.js" type="text/javascript"></script>
 
+    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+  <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso16.css" /> 
+
 </head>
-<style>
-body {
-          background: #1E90ff;
-          background-image: url("http://gph.to/2mWwwn2");
-
-          background-repeat: no-repeat;
-          background-size: cover;
-        }
-
-        </style>
-     <!-- another water gif http://gph.to/2mWz1FQ -->   
+  
 <body>
 
 <nav class="navbar navbar-inverse visible-xs">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar">Home</span>
-        <span class="icon-bar">Carousel</span>
-        <span class="icon-bar">Addition</span>                        
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>      
       </button>
       <a class="navbar-brand" href="#">LOGO</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">HOME</a></li>
-        <li class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Can-i-kyak</button>
-          <div id="myDropdown" class="dropdown-content">
-              <a id=""></a>
-              <a id=""></a>
-              <a href="#">Today</a>
-          </div>
-        </li>
-        <li><a href="#">Gender</a></li>
-        <li><a href="#">Geo</a></li>
+        <li class="active"><a href="home.html">HOME</a></li>
+        <li><a href="map.html">USA MAP</a></li>
+        <li><a href="carousel.html">Carousel</a></li>
+        <li><a href="location.html">Location</a></li>
+        <li><a href="addition.html">Addition</a></li>
       </ul>
     </div>
   </div>
@@ -69,21 +59,12 @@ body {
       <img src="assets/images/download.jpg" width="100px" height="100px" alt="logo"><h2> CAN-I-KAYAK ? </h2>
       <ul class="nav nav-pills nav-stacked">
         <li class="active"><a href="#section1">HOME</a></li>
-          <li class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Can-i-kyak</button>
-            <div id="myDropdown" class="dropdown-content">
-              <a id="map">BY MAP</a>
-              <a id="name">BY LOCATION NAME</a>
-              <a id="googleId">BY GOOGLEID</a>
-              <a id="googleId">BY DIFFICULTY</a>
-
-            </div>
-          </li>
-        <li ><a href="#section2">MAP</a></li>
-        <li><a href="#section3">SEARCH</a></li>
-        <li><a href="#section3">COMMENTS</a></li>
+        <li><a href="view.html">USA Map</a></li>
+        <li><a href="carousel.html">CAROUSEL</a></li>
+        <li><a href="location.html">LOCATION</a></li>
+        <li><a href="addition.html">ADDITION</a></li>
       </ul><br>
-
+        
         <div class="col-sm-12">
          <div class="well text-center">
             <h4>Follow us...</h4>
@@ -97,79 +78,70 @@ body {
     <br>
     
     <div class="col-sm-9">
-      <div class="well">
-        <h4 id="title" class="data-title"> </h4>
-        
-      </div>
-    <div class="col-sm-9">
-      <div class="well">
-        <h4>Dashboard</h4>
-        <p>Some text..</p>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Users</h4>
-            <p>1 Million</p> 
+
+      <div class="row-location col-sm-12">
+          <h2><strong> Give us your Feedback! </strong></h2><br>
+
+          <div class="row-location-image col-sm-3">
+             <img googleId=" " src="https://placehold.it/250x250?text=IMAGE" alt="Image">
           </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Pages</h4>
-            <p>100 Million</p> 
+
+          <div class="row-info col-sm-9">
+
+              <ul>
+                  <li><strong> Location Name: <span id="googleId"> </span></strong></li>
+                  <li><strong> Location Address: <span id="locationAdd"> </span></strong></li>
+                  <li><strong> Description: <span id="description"> </span></strong></li>
+                  <li><strong> Attractions: <span id="locationAttr"> </span></strong></li>
+                  <li><strong> Difficulty Level: <span id="difficulty" class="difficultyId"> </span></strong></li>
+                  <li><strong> Class: <span id="locationClass"> </span></strong></li>
+                  <li><strong> Rapids: <span id="rapids"> </span></strong></li>
+                  <li><strong> Rental: <span id="rental" class="rentalId"> </span></strong></li>
+                  <li><strong> Price: <span id="price"> </span></strong></li>
+              </ul>
           </div>
+      </div>    
+
+
+      <div class="panel-body">
+          <form method="POST" role="form" >
+            <h3> FILL UP HERE!</h3>
+            <div class="form-group">
+                <label for="name"> PERSON NAME: </label>
+                <input type="text" class="form-control" required placeholder="Name of a person" id="authorId" required>
+            </div>
+
+            <div class="form-group">
+                <label for="comments"> COMMENTS: </label>
+                <input type="text" class="form-control" required placeholder="Comments on the location" id="comment"
+                class="commentId" required>
+            </div>
+
+            <div class="form-group">
+                <label for=""> RATING: </label>
+                <select id="dropDownList" type="text" class="form-control" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" id="rating" required>Select an Option<span></span>
+                        <option value="1">Best place to visit!</option>
+                        <option value="2">Good place!</option>
+                        <option value="3">Average</option>
+                        <option value="4">Not bad to spend time!</option>
+                        <option value="5">Don't waste your time!</option>
+                      </select>
+            </div>
+
+            <div class="form-group">
+
+                <button type="submit" id="submit" class="btn btn-primary btn-lg"> Submit </button>
+
+                <button type="clear" id="clear" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-trash"></span> Clear </button>
+            </div>
+
+            </form>
         </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Sessions</h4>
-            <p>10 Million</p> 
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <div class="well">
-            <h4>Bounce</h4>
-            <p>30%</p> 
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p> 
-            <p>Text</p> 
-            <p>Text</p> 
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p> 
-            <p>Text</p> 
-            <p>Text</p> 
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p> 
-            <p>Text</p> 
-            <p>Text</p> 
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-8">
-          <div class="well">
-            <p>Text</p> 
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div class="well">
-            <p>Text</p> 
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>
 
+
+  
 </body>
 </html>
