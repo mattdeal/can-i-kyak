@@ -10,7 +10,7 @@ var bodyParser = require("body-parser");
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = process.env.PORT || 8000;
+var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -30,6 +30,11 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Static directory
 app.use(express.static("./public"));
+
+// handlebars
+var exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs ({ defaultLayout: "main-md" }));
+app.set("view engine", "handlebars");
 
 // Routes =============================================================
 
