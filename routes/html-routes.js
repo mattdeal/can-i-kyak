@@ -12,21 +12,21 @@ module.exports = function(app) {
   });
 
   // route for creating a new location
-  app.get('/add', function(req, res) {
+  app.get("/add", function(req, res) {
     //todo: could res.render() work here?  - insert add contents into main template
     res.sendFile(path.join(__dirname, "/../public/addition.html"));
   });
   
   // route to lookup locations by state
-  app.get('/locations/:state', function(req, res) {
+  app.get("/locations/:state", function(req, res) {
     //todo: db queries
-    res.render('results', {});
+    res.render("results", {});
   });
 
   // route to lookup a single location 
-  app.get('/location/:id', function(req, res) {
+  app.get("/location/:id", function(req, res) {
     //todo: db queries
-    res.render('location', {});
+    res.render("location", {});
   });
 
 };//end module.exports
