@@ -1,0 +1,54 @@
+<!-- this is where an individual location will appear -->
+<div class="row-location col-sm-12">
+    <h2><strong> Give us your Feedback! </strong></h2><br>
+
+    <div class="row-location-image col-sm-3">
+        <img googleId=" " src="https://placehold.it/250x250?text=IMAGE" alt="Image">
+    </div>
+
+    <div class="row-info col-sm-9">
+        <ul>
+            <li><strong> Location Name: <span id="googleId"> </span></strong></li>
+            <li><strong> Location Address: <span id="locationAdd"> </span></strong></li>
+            <li><strong> Description: <span id="description"> </span></strong></li>
+            <li><strong> Attractions: <span id="locationAttr"> </span></strong></li>
+            <li><strong> Difficulty Level: <span id="difficulty" class="difficultyId"> </span></strong></li>
+            <li><strong> Class: <span id="locationClass"> </span></strong></li>
+            <li><strong> Rapids: <span id="rapids"> </span></strong></li>
+            <li><strong> Rental: <span id="rental" class="rentalId"> </span></strong></li>
+            <li><strong> Price: <span id="price"> </span></strong></li>
+        </ul>
+    </div>
+</div>
+
+<div class="panel-body">
+    <form method="POST" role="form">
+        <h3> FILL UP HERE!</h3>
+        <div class="form-group">
+            <label for="name"> PERSON NAME: </label>
+            <input type="text" class="form-control" required placeholder="Name of a person" id="authorId" required>
+        </div>
+
+        <div class="form-group">
+            <label for="comments"> COMMENTS: </label>
+            <input type="text" class="form-control" required placeholder="Comments on the location" id="comment" class="commentId" required>
+        </div>
+
+        <div class="form-group">
+            <label for=""> RATING: </label>
+            <select id="dropDownList" type="text" class="form-control" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
+                id="rating" required>Select an Option<span></span>
+                <option value="1">Best place to visit!</option>
+                <option value="2">Good place!</option>
+                <option value="3">Average</option>
+                <option value="4">Not bad to spend time!</option>
+                <option value="5">Don't waste your time!</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" id="submit" class="btn btn-primary btn-lg"> Submit </button>
+            <button type="clear" id="clear" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-trash"></span> Clear </button>
+        </div>
+    </form>
+</div>
