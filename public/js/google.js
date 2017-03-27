@@ -1,4 +1,4 @@
-
+$(document).ready(function() {
 // Calls placeDetail API after receiving place id from placeSearch
 // to get details on a specific place
 function placeDetail(id) {
@@ -57,3 +57,5 @@ function geocoder(state) {
   });
 
 };// end geocoder function
+
+});//end ready.function

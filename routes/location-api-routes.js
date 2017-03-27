@@ -11,7 +11,12 @@ module.exports = function(app) {
           state: req.params.state
         }
       }).then(function(modelsLocation) {
-        res.json(modelsLocation);
+        // console.log(modelsLocation);
+        // res.json(modelsLocation);
+
+        // console.log(modelsLocation);
+        //
+        res.render("test", {locations: modelsLocation});
       });
     }
   }); //end app.get

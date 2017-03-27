@@ -1,11 +1,11 @@
 $(document).ready(function() {
 
-  //function for scanning database for places
+  //function for scanning database for kyaking places
+  //based on state initials from map buttons
   function findPlaces(initials) {
-    $.get("/api/locations/" + initials, function(data) {
-      console.log(data);
-    });
+    window.location = ("/locations/"+ initials);
   };// end findPlaces function
+
 
   $('#map2').usmap({
     'stateStyles': {
@@ -25,7 +25,6 @@ $(document).ready(function() {
         .animate({backgroundColor: '#ddd'}, 1000);
 
         $("#text").text(data.name);
-        console.log(data);
 
         findPlaces(data.name);
     }
