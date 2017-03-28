@@ -16,9 +16,8 @@ module.exports = function(app) {
 
         // console.log(modelsLocation);
         //
-        res.render("test", {locations: modelsLocation});
+        res.render("results", {locations: modelsLocation});
       });
     }
   }); //end app.get
-
 }; //end module.exports

@@ -1,7 +1,6 @@
 {
   "development": {
     "username": "root",
-    "port": 8889,
     "password": "root",
     "database": "kyak_db",
     "host": "127.0.0.1",
