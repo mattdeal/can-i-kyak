@@ -1,21 +1,19 @@
 //Dependencies
 var path = require("path");
 var models = require("../models");
-<<<<<<< HEAD
-
-=======
->>>>>>> 87cc65c6bcea5bbb2ea12f4352983a2b2f2c7052
 
 //Routes
 module.exports = function(app) {
 
   // default to home
   app.get("/", function(req, res) {
-    console.log('in /');
-    
     res.sendFile(path.join(__dirname, "/../public/view.html"));
-<<<<<<< HEAD
   }); //end app.get
+
+  // route for creating a new location
+  app.get("/add", function(req, res) {
+    res.sendFile(path.join(__dirname, "/../public/addition.html"));
+  });
 
   //page when state is clicked
   app.get("/locations/:state", function(req, res) {
@@ -26,7 +24,7 @@ module.exports = function(app) {
           state: req.params.state
         }
       }).then(function(modelsLocation) {
-        res.render("test", {locations: modelsLocation});
+        res.render("index", {locations: modelsLocation});
       }); //then function
     }
   }); //end app.get
@@ -39,11 +37,11 @@ module.exports = function(app) {
           id: req.params.id
         }
       }).then(function(modelsLocation) {
-        res.render("test", {locations: modelsLocation});
+        res.render("index", {locations: modelsLocation});
       }) //end then.function
     }
   }); //end app.get
-=======
+
     //todo: could res.render() work here?  - insert map contents into main template
   });
 
@@ -54,22 +52,21 @@ module.exports = function(app) {
 
     res.sendFile(path.join(__dirname, "/../public/addition.html"));
   });
-  
+
   // route to lookup locations by state
   app.get("/locations/:state", function(req, res) {
     console.log('in /locations/state');
-    
+
     //todo: db queries
     res.render("results", {});
   });
 
-  // route to lookup a single location 
+  // route to lookup a single location
   app.get("/location/:id", function(req, res) {
     console.log('in /location/id');
-    
+
     //todo: db queries
     res.render("location", {});
   });
->>>>>>> 87cc65c6bcea5bbb2ea12f4352983a2b2f2c7052
 
 };//end module.exports
