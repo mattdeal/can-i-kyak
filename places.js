@@ -16,27 +16,4 @@
 {"Cheoah River","15152 Tapoco Rd", "Robbinsville", "NC", "28771","googleid","http://www.americanwhitewater.org/photos/archive/medium/12222.jpg"};
 {"Shanadoah River Launch","350 Daughter of Stars Dr", "Bentonville", "VA", "22610", "googleid","https://www.flickr.com/photos/vadcr/14160030449/in/album-72157603478878746/"}]
    */
- // difficulty ratings (id,rapid class)
- [{1,5}, {2,1},{3,1},{4,2},{5,1},{6,1},{7,3},{8,2},{9,2},{10,3},{11,2},{12,3},{13,1},{14,3},{15,4}]
-// rental (id, 1=yes,0=no)
- [[{1,1}, {2,1},{3,1},{4,0},{5,0},{6,1},{7,0},{8,1},{9,0},{10,1},{11,1},{12,1},{13,1},{14,0},{15,0}]
- //comments (id,comments associated with each location)
- [{1,"My family loved all of the other options as well as the kayaking."},
- {1,"The rapids were really challenging. My teenagers didn't even complain about the family time!"},
- {2,"This is one of those places that nobody knows about-it is a real gem."},
- {3,"Gorgeous but not much there-make sure that your tank is full."},
- {4,"Great for that quick trip and close to the Raleigh attractions."},{5,"Close enough to Charlotte that we can be in the water in an hour."},
- {5,"Watch out for the other boats on the water!"},
- {6,"Beautiful but watch the weather-changes quickly."},
- {7,"Alaska can't be beat for the beautiful scenery."},
- {8,"California-Need I say more?"},
- {8,"Pretty low-key for California."},
- {9,"This is a great place for people that are just learning. Good Facilities."},
- {10,"Good launch site"},
- {11,"Both river camping platforms in Devil’s Gut give you quiet solitude, an ideal place to find wildlife and old growth trees. Kayaking or canoeing to either makes for an easy and scenic day paddle."},
-{11,"If you’re paddling here for a day trip, you’ll want to use restrooms before arriving at the boat ramp"},
- {12,"This undammed blueway provides long distance flatwater kayaking and canoeing opportunities. "},
- {13,"This is historically relevant as the Little Meadow Creek was the site of the America’s first Gold Rush"},
- {14,"Because of the trees and brush, it is not a good place to paddle if you don't have a rock-solid roll and the ability to read water well on the fly" },
- {15,"In addition to meandering river frontage, the park offers scenic views of Massanutten Mountain to the west and Shenandoah National Park to the east."},
- {15, "A large riverside picnic area, picnic shelters, trails, river access and a car-top boat launch make this a popular destination for families, anglers and canoeists."}]
+   
