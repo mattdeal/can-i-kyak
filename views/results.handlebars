@@ -1,6 +1,6 @@
 <!-- This is where the carousel will appear -->
 
-//todo: handlebars need to be figured out for this part!!
+{{!--//todo: handlebars need to be figured out for this part!!--}}
 
 <!--<div class="well1">
     <h3 id="data-title"><strong> LOCATION NAME: 
@@ -16,9 +16,8 @@
 
             {{#each locations}}
                 
-                <li data-target="#myCarousel" data-slide-to="{{@index}}" {{#if @first}} 
-                class="active" 
-                {{/if}}></li>
+                <li data-target="#myCarousel" data-slide-to="{{@index}}" 
+                {{#if @first}}class="active"{{/if}}></li>
        
             {{/each}}
             </ol>
@@ -28,8 +27,8 @@
                  
                 {{#each locations}}
                     <div class="item {{#if @first}} active{{/if}}">
-                        <img id="cr{{@index}}" src={{this.locationImg}} alt="Image" data-location-id={{this.locationId}}>{{this.imageTitle}}
-                  
+                        <img id="cr{{@index}}" src="{{this.locationImg}}" alt="Image" data-location-id={{this.locationId}}>
+                        {{this.name}}
                     </div>
                 {{/each}}
 
@@ -51,30 +50,24 @@
 <!--<div class="row">
     <div class="col-sm-4">
         <div class="well1">
-        {{#each}}
             <h4 id={{this.comment}} class="commentId"> Comment: </h4>
             <h4 id={{this.description}}> Description: </h4>
             <h4 id={{this.rating}}> Rating: </h4>
             <h4 id={{this.attractions}}> Attractions: </h4>
-        {{/each}}
         </div>
     </div>
     <div class="col-sm-4">
         <div class="well1">
-        {{#each}}
             <h4 id={{this.difficulty}} class="difficultyId"> Difficulty: </h4>
             <h4 id={{this.class}}> Class: </h4>
             <h4 id={{this.rapids}}> Rapids: </h4>
-        {{/each}}
 
         </div>
     </div>
     <div class="col-sm-4">
         <div class="well1">
-        {{#each}}
             <h4 id={{this.rental}} class="rentalId"> Rental: </h4>
             <h4 id={{this.price}}> Price: </h4>
-        {{/each}}        
         </div>
     </div>
 </div>-->
