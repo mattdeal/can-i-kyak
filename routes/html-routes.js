@@ -56,9 +56,21 @@ module.exports = function(app) {
   // route to lookup locations by state
   app.get("/locations/:state", function(req, res) {
     console.log('in /locations/state');
+    
+    if (req.params.state) {
+      models.Location.findAll({
+        where: {
+          state: req.params.state
+        }
+      }).then(function(modelsLocation) {
+        console.log(modelsLocation);
+
+        res.render("results", { locations: modelsLocation });
+      }); //then function
+    }
 
     //todo: db queries
-    res.render("results", {});
+    // res.render("results", {});
   });
 
   // route to lookup a single location

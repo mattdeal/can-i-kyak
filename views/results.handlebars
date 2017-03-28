@@ -1,52 +1,37 @@
 <!-- This is where the carousel will appear -->
 
-<!-- todo: does this need to be in a row? -->
-<div class="well1">
-    <h3 class="data-title"><strong> LOCATION NAME: <span id="title">  </span></strong></h3>
-    <h4 id="data-address"><strong><span id="address">ADDRESS:  </span></strong> </h4>
-</div>
+{{!--//todo: handlebars need to be figured out for this part!!--}}
+
+<!--<div class="well1">
+    <h3 id="data-title"><strong> LOCATION NAME: 
+<span id={{this.locationTitle}}>  </span></strong></h3>
+    <h4 id="data-address"><strong>ADDRESS: <span id={{this.address}}> </span></strong> </h4>
+</div>-->
 
 <div class="row">
     <div class="col-sm-12">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <!-- todo: for each location, create these <li> items, default the first to class="active" -->
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
-                <li data-target="#myCarousel" data-slide-to="4"></li>
-                <li data-target="#myCarousel" data-slide-to="5"></li>
+
+            {{#each locations}}
+                
+                <li data-target="#myCarousel" data-slide-to="{{@index}}" 
+                {{#if @first}}class="active"{{/if}}></li>
+       
+            {{/each}}
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
-                <!-- todo: for each location, create these <div> items, default the first to class="item active" -->
+                 
+                {{#each locations}}
+                    <div class="item {{#if @first}} active{{/if}}">
+                        <img id="cr{{@index}}" src="{{this.locationImg}}" alt="Image" data-location-id={{this.locationId}}>
+                        {{this.name}}
+                    </div>
+                {{/each}}
 
-                <div class="item active">
-                    <img id="cr0" src="https://placehold.it/1200x350?text=IMAGE" alt="Image">
-                </div>
-
-                <div class="item">
-                    <img id="cr1" src="https://placehold.it/1200x350?text=Another Image Maybe" alt="Image">
-                </div>
-
-                <div class="item">
-                    <img id="cr2" src="https://placehold.it/1200x350?text=Another Image Maybe" alt="Image">
-                </div>
-
-                <div class="item">
-                    <img id="cr3" src="https://placehold.it/1200x350?text=Another Image Maybe" alt="Image">
-                </div>
-
-                <div class="item">
-                    <img id="cr4" src="https://placehold.it/1200x350?text=Another Image Maybe" alt="Image">
-                </div>
-
-                <div class="item">
-                    <img id="cr5" src="https://placehold.it/1200x350?text=Another Image Maybe" alt="Image">
-                </div>
             </div>
 
             <!-- Left and right controls -->
@@ -62,26 +47,27 @@
     </div>
 </div>
 <!-- todo: determine what we're doing here -->
-<div class="row">
+<!--<div class="row">
     <div class="col-sm-4">
         <div class="well1">
-            <h4 id="comment" class="commentId"> Comment: </h4>
-            <h4 id="description"> Description: </h4>
-            <h4 id="rating"> Rating: </h4>
-            <h4 id="attractions"> Attractions: </h4>
+            <h4 id={{this.comment}} class="commentId"> Comment: </h4>
+            <h4 id={{this.description}}> Description: </h4>
+            <h4 id={{this.rating}}> Rating: </h4>
+            <h4 id={{this.attractions}}> Attractions: </h4>
         </div>
     </div>
     <div class="col-sm-4">
         <div class="well1">
-            <h4 id="difficulty" class="difficultyId"> Difficulty: </h4>
-            <h4 id="class"> Class: </h4>
-            <h4 class="rapids"> Rapids: </h4>
+            <h4 id={{this.difficulty}} class="difficultyId"> Difficulty: </h4>
+            <h4 id={{this.class}}> Class: </h4>
+            <h4 id={{this.rapids}}> Rapids: </h4>
+
         </div>
     </div>
     <div class="col-sm-4">
         <div class="well1">
-            <h4 id="rental" class="rentalId"> Rental: </h4>
-            <h4 id="price"> Price: </h4>
+            <h4 id={{this.rental}} class="rentalId"> Rental: </h4>
+            <h4 id={{this.price}}> Price: </h4>
         </div>
     </div>
-</div>
+</div>-->

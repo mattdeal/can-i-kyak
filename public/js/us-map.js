@@ -21,7 +21,7 @@ $(document).ready(function() {
       $('#alert')
         .text('Click '+data.name+' on map 2')
         .stop()
-        .css('backgroundColor', '#af0')
+        .css('backgroundColor', 'transparent')
         .animate({backgroundColor: '#ddd'}, 1000);
 
         $("#text").text(data.name);
