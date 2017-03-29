@@ -1,6 +1,6 @@
 $(document).ready(function() {
-// Calls placeDetail API after receiving place id from placeSearch
-// to get details on a specific place
+// Calls locationDetail API after receiving location id from locationSearch
+// to get details on a specific location
 function placeDetail(id) {
   var query = "https://maps.googleapis.com/maps/api/place/details/json?placeid="+id+"&key=AIzaSyDAhGg64lKOYPK-6jEMFKqQlc2TSTHTI2M";
 
@@ -11,11 +11,11 @@ function placeDetail(id) {
     console.log(response);
     $("#text").append(JSON.stringify(response.result.reviews[0].text));
   });
-}; //end placeDetail function
+}; //end locationDetail function
 
 
-// Calls placeSearch API  with lat & lng & return place id
-// used for placeDetail
+// Calls locationSearch API  with lat & lng & return place id
+// used for locationDetail
 function placeSearch(lat, lng) {
   var query = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + lat + "," + lng + "&radius=50000&type=park&keyword=kyak&key=AIzaSyDAhGg64lKOYPK-6jEMFKqQlc2TSTHTI2M";
 

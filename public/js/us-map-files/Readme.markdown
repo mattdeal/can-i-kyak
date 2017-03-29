@@ -11,13 +11,8 @@ You can configure the styles of the states and labels for the default, per state
 	locationImg: "sample image url",
 	imageTitle: "sample image title in carousel",
 	comment: "sample comment",
-	description: "sample description",
 	rating: "sample rating",
-	attractions: "sample attractions",
 	difficulty: "sample.difficulty",
-	class: "sample class",
-	rapids: "sample rapids",
-	rental: "sample rental",
-	price: "sample price"
+	rental: "sample rental"
 }
 ]
