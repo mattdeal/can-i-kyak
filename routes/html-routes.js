@@ -7,12 +7,12 @@ module.exports = function(app) {
 
   // default to home
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "/../public/view.html"));
+    res.render("map", {});
   }); //end app.get
 
   // route for creating a new location
   app.get("/add", function(req, res) {
-    res.sendFile(path.join(__dirname, "/../public/addition.html"));
+    res.render("addition", {});
   });
 
   //page when state is clicked
