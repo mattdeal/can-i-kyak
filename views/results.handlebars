@@ -1,12 +1,5 @@
 <!-- This is where the carousel will appear -->
 
-
-<div class="well1">
-    <h3 id="data-title"><strong> LOCATION NAME: 
-<span id={{this.locationTitle}}>  </span></strong></h3>
-    <h4 id="data-address"><strong>ADDRESS: <span id={{this.googleId}} {{this.street}} {{this.city}} {{this.state}} {{this.zip}}> </span></strong> </h4>
-</div>
-
 <div class="row">
     <div class="col-sm-12">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
@@ -14,11 +7,10 @@
             <ol class="carousel-indicators">
 
             {{#each locations}}
-                
                 <li data-target="#myCarousel" data-slide-to="{{@index}}" 
                 {{#if @first}}class="active"{{/if}}></li>
-       
             {{/each}}
+
             </ol>
 
             <!-- Wrapper for slides -->
@@ -29,7 +21,10 @@
                         <a href="/location/{{this.id}}">
                             <img id="cr{{@index}}" src="{{this.imageUrl}}" alt="{{this.name}}" data-location-id={{this.locationGoogleId}}>
                         </a>
-                        {{this.locationTitle}}
+                        <div class="well1">
+                            <h3 id="data-title">{{this.name}}</h3>
+                            <h4 id="data-address">{{this.street}} {{this.city}} {{this.state}} {{this.zip}}</h4>
+                        </div>
                     </div>
                 {{/each}}
 
