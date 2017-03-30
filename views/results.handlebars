@@ -26,7 +26,9 @@
                  
                 {{#each locations}}
                     <div class="item {{#if @first}} active{{/if}}">
-                        <img id="cr{{@index}}" src="{{this.locationImgUrl}}" alt="Image" data-location-id={{this.locationGoogleId}}>
+                        <a href="/location/{{this.id}}">
+                            <img id="cr{{@index}}" src="{{this.imageUrl}}" alt="{{this.name}}" data-location-id={{this.locationGoogleId}}>
+                        </a>
                         {{this.locationTitle}}
                     </div>
                 {{/each}}
