@@ -1,52 +1,51 @@
 <!-- this is where an individual location will appear -->
 
-//todo: handlebars need to be figured out for this part!!
 
 <!-- <div class="row-location col-sm-12">
 
     <div class="well1">
 
-        <h2 id="data-title"><strong> LOCATION NAME: <span id={{this.name}}>  </span></strong></h2>
+        <h2 id="data-title"><strong> LOCATION NAME: <span id={{this.locationTitle}} {{this.googleId}}>  </span></strong></h2>
         <h3 id="data-address"><strong><span id={{this.googleId}} {{this.street}} {{this.city}} {{this.state}} {{this.zip}}>ADDRESS:  </span></strong> </h3>
     </div> -->
 
 
 
     <div class="row-location-image col-sm-3">
-        <img googleId={{this.googleId}} src={{ this.imageUrl}} alt="Image">
+        <img googleId={{this.googleId}} src={{this.imageUrl}} alt="Image">
     </div>
 
     <div class="row-info col-sm-9">
         <ul>
-            <li><strong> Location Name: <span id={{this.googleId}}> </span></strong></li>
+            <li><strong> Location Name: <span id={{this.locationTitle}} {{this.googleId}}> </span></strong></li>
             <li><strong> Location Address: <span id={{this.googleId}} {{this.street}} {{this.city}} {{this.state}} {{this.zip}}> </span></strong></li>
             <li><strong> Comments: <span id={{this.locationId}} {{this.comments}}> </span></strong></li>
-            <li><strong> Difficulty Level: <span id={{this.locationId}} {{this.difficulty}} class="difficultyId"> </span></strong></li>
-            <li><strong> Rental: <span id={{this.locationId}} {{this.rental}} class="rentalId"> </span></strong></li>
+            <li><strong> Difficulty Level: <span id={{this.googleId}} {{this.difficulty}} class="difficultyId"> </span></strong></li>
+            <li><strong> Rental: <span id={{this.googleId}} {{this.rental}} class="rentalId"> </span></strong></li>
         </ul>
     </div>
 </div>
 
 <div class="panel-body">
     {{#each comments}}
-        {{this.location}} {{name}}
+        {{this.location}} {{this.googleId}} {{name}}
 
     <form class="action="/add" method="POST">
         <h3> Give us your Feedback!</h3>
         <div class="form-group">
             <label for="name"> PERSON NAME: </label>
-            <input type="text" class="form-control" required placeholder="Name of a person" id="authorId" required>
+            <input type="text" class="form-control" required placeholder="Name of a person" id={{this.authorId}} {{this.googleId}} required>
         </div>
 
         <div class="form-group">
             <label for="comments"> COMMENTS: </label>
-            <input type="text" class="form-control" required placeholder="Comments on the location" id="comment" class="commentId" required>
+            <input type="text" class="form-control" required placeholder="Comments on the location" id={{this.comment}}{{this.googleId}} class="commentId" required>
         </div>
 
         <div class="form-group">
             <label for=""> RATING: </label>
             <select id="dropDownList" type="text" class="form-control" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"
-                id="rating" required>Select an Option<span></span>
+                id={{this.rental}} {{this.googleId}} required>Select an Option<span></span>
                     <option value="1">Best place to visit!</option>
                     <option value="2">Good place!</option>
                     <option value="3">Average</option>
