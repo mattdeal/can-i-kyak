@@ -16,7 +16,7 @@ module.exports = function(app) {
 
         // console.log(modelsLocation);
         //
-        res.render("results", {locations: modelsLocation});
+        res.render("results", {locations: modelsLocation});// call carousel page handlebar here
       });
     }
   }); //end app.get

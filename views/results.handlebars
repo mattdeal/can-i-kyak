@@ -1,12 +1,10 @@
 <!-- This is where the carousel will appear -->
 
-{{!--//todo: handlebars need to be figured out for this part!!--}}
 
-<!--<div class="well1">
-    <h3 id="data-title"><strong> LOCATION NAME: 
-<span id={{this.locationTitle}}>  </span></strong></h3>
-    <h4 id="data-address"><strong>ADDRESS: <span id={{this.address}}> </span></strong> </h4>
-</div>-->
+<div class="well1">
+        <h3 id="data-title"><strong> LOCATION NAME: <span id={{this.name}}>  </span></strong></h2>
+        <h4 id="data-address"><strong><span id={{this.googleId}} {{this.street}} {{this.city}} {{this.state}} {{this.zip}}>ADDRESS:  </span></strong> </h3>
+</div>
 
 <div class="row">
     <div class="col-sm-12">
@@ -46,28 +44,23 @@
         </div>
     </div>
 </div>
-<!-- todo: determine what we're doing here -->
-<!--<div class="row">
+
+<div class="row">
     <div class="col-sm-4">
         <div class="well1">
             <h4 id={{this.comment}} class="commentId"> Comment: </h4>
-            <h4 id={{this.description}}> Description: </h4>
-            <h4 id={{this.rating}}> Rating: </h4>
-            <h4 id={{this.attractions}}> Attractions: </h4>
         </div>
     </div>
     <div class="col-sm-4">
         <div class="well1">
             <h4 id={{this.difficulty}} class="difficultyId"> Difficulty: </h4>
-            <h4 id={{this.class}}> Class: </h4>
-            <h4 id={{this.rapids}}> Rapids: </h4>
 
         </div>
     </div>
     <div class="col-sm-4">
         <div class="well1">
             <h4 id={{this.rental}} class="rentalId"> Rental: </h4>
-            <h4 id={{this.price}}> Price: </h4>
         </div>
     </div>
-</div>-->
+</div>
+

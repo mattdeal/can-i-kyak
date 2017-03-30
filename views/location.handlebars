@@ -1,13 +1,12 @@
 <!-- this is where an individual location will appear -->
 
-//todo: handlebars need to be figured out for this part!!
 
 <!-- <div class="row-location col-sm-12">
 
     <div class="well1">
 
-        <h2 id="data-title"><strong> LOCATION NAME: <span id={{this.name}}>  </span></strong></h2>
-        <h3 id="data-address"><strong><span id={{this.googleId}} {{this.street}} {{this.city}} {{this.state}} {{this.zip}}>ADDRESS:  </span></strong> </h3>
+        <h3 id="data-title"><strong> LOCATION NAME: <span id={{this.name}}>  </span></strong></h3>
+        <h4 id="data-address"><strong><span id={{this.googleId}} {{this.street}} {{this.city}} {{this.state}} {{this.zip}}>ADDRESS:  </span></strong> </h4>
     </div> -->
 
 
@@ -18,11 +17,15 @@
 
     <div class="row-info col-sm-9">
         <ul>
+        {{#each locations}}
+          {{#if this.locationId}}
             <li><strong> Location Name: <span id={{this.googleId}}> </span></strong></li>
             <li><strong> Location Address: <span id={{this.googleId}} {{this.street}} {{this.city}} {{this.state}} {{this.zip}}> </span></strong></li>
             <li><strong> Comments: <span id={{this.locationId}} {{this.comments}}> </span></strong></li>
             <li><strong> Difficulty Level: <span id={{this.locationId}} {{this.difficulty}} class="difficultyId"> </span></strong></li>
             <li><strong> Rental: <span id={{this.locationId}} {{this.rental}} class="rentalId"> </span></strong></li>
+          {{/if}}
+        {{/each}}
         </ul>
     </div>
 </div>
@@ -31,7 +34,7 @@
     {{#each comments}}
         {{this.location}} {{name}}
 
-    <form class="action="/add" method="POST">
+    <form id="commentForm" class="action="/add" method="POST">
         <h3> Give us your Feedback!</h3>
         <div class="form-group">
             <label for="name"> PERSON NAME: </label>

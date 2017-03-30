@@ -54,11 +54,9 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="home.html">HOME</a></li>
-        <li><a href="usaMap.html">USA MAP</a></li>
-        <li><a href="carousel.html">Carousel</a></li>
-        <li><a href="location.html">Location</a></li>
-        <li><a href="addition.html">Addition</a></li>
+        <li class="active"><a href="/">HOME</a></li>
+        <li><a href="/map">USA MAP</a></li>
+        <li><a href="/add">Addition</a></li>
       </ul>
     </div>
   </div>
@@ -69,11 +67,9 @@
     <div class="col-sm-3 sidenav hidden-xs">
       <img src="assets/images/download.jpg" width="100px" height="100px" alt="logo"><h2> CAN-I-KAYAK ? </h2>
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#section1">HOME</a></li>
-        <li><a href="#section2">USA Map</a></li>
-        <li><a href="#section3">CAROUSEL</a></li>
-        <li><a href="#section4">LOCATION</a></li>
-        <li><a href="#section5">ADDITION</a></li>
+        <li class="active"><a href="/">HOME</a></li>
+        <li><a id="/map">USA Map</a></li>
+        <li><a href="/add">ADDITION</a></li>
       </ul><br>
 
     <div class="col-sm-12">
@@ -89,13 +85,13 @@
     <br>
 
     <div class="col-sm-9">
-      <div class="well">
-        <h4 id="title" class="data-title"> </h4>
+                <!-- handlebars starts here -->
 
-      </div>
+                {{{ body }}}
+
+                <!-- handlebars ends here -->
     </div>
-    
-		{{{ body }}}
+
 
 	</body>
 

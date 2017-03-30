@@ -1,5 +1,20 @@
 
 //************************* CAROUSEL SECTION **********************************
+ //populate the carousel page when state is clicked
+
+$(document).on("click",".item.active > img",function() {
+
+ console.log(this);
+
+ if (.item.active === img) {
+    populateGrid();
+ }
+ else {
+  alert("Please, select the location image to go to the location page!!");
+ };
+
+
+// Function to populate the grid.
 function populateGrid() {
 var currentModel;
  // current model in the carousel.
@@ -15,7 +30,7 @@ var currentModel;
       	console.log(response); // a server using an AJAX HTTP GET request
     	models = response;
     	tableHTML = "";
-    	for (var i = 0; i < 10; i++) {
+    	for (var i = 0; i < ; i++) {
 
       	    	if (selection == "models") {
       	    		if (models[i].model.image != null) {
@@ -24,30 +39,10 @@ var currentModel;
       	    		}
       	    	}
       	    
-      	    	$("#cr" + i).attr("src", currentModel); // Refering to the 10 elements (modelImages) from the carousel in HTML.
+      	    	$("#cr" + i).attr("src", currentModel); // Refering to the 6 elements (modelImages) from the carousel in HTML.
       	    	$("#cr" + i).attr("style", "height: 400px; width: 400px");
             }
           });
    }
 
-//********************** DROPDOWN BUTTON *********************************
- //When the user clicks on the button, 
-//toggle between hiding and showing the dropdown content 
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
+});
