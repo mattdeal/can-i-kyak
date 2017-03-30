@@ -15,9 +15,47 @@ module.exports = function(app) {
         // res.json(modelsLocation);
 
         // console.log(modelsLocation);
-        //
-        res.render("results", {locations: modelsLocation});
+        res.render("location", modelsLocation);
       });
     }
   }); //end app.get
+
+  //creates new place in database
+
+  app.post("/api/location", function(req, res)  {
+
+    models.Location.create({
+      name: req.body.name,
+      street: req.body.street,
+      city: req.body.city,
+      state: req.body.state,
+      zip: req.body.zip,
+      googleId: req.body.googleId,
+      imageUrl:req.body.imageurl
+    })
+    .then(function(newPlace)  {
+      res.json(newPlace)
+
+    });
+
+  });
+
+
+  app.get("/api/location/:id", function(req, res)  {
+    
+    if (req.params.id) {
+      models.Location.findOne ({
+        where: {
+          id: req.params.id
+        }
+      })
+      .then(function(modelLocation)  {
+      res.render("location", modelsLocation);
+
+      });
+    }
+
+    
+  });
+
 }; //end module.exports

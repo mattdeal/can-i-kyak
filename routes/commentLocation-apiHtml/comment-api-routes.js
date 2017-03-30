@@ -20,11 +20,12 @@ module.exports = function(app) {
     }
   });
 
-  // Create comment
+  // Create  new comment in the database
   app.post("/api/comment", function(req, res) {
 
     console.log("Models Data");
     console.log(req.body);
+
     models.Comment.create({
       locationId: req.body.locationId,
       comment: req.body.comment
@@ -33,4 +34,16 @@ module.exports = function(app) {
       res.json(modelsComment);
     });
   });
+
+
+  //console.log(modelsComment);
+  //
+  res.render("results", {comment: modelsComment});
+
 };//end module.exports
+
+
+
+
+
+
