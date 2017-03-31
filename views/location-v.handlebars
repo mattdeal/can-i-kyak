@@ -164,41 +164,51 @@
 
         function loadDifficulty() {
             $.get('/api/difficulty/' + locationId, function(data) {
-                console.log(data);
-                var avgDifficulty = 0;
-                for (var i = 0; i < data.length; i++) {
-                    avgDifficulty+=parseFloat(data[i].difficulty);
+                if (data && data.length > 0) {
+                     var avgDifficulty = 0;
+                    for (var i = 0; i < data.length; i++) {
+                        avgDifficulty+=parseFloat(data[i].difficulty);
+                    }
+
+                    avgDifficulty = parseFloat(avgDifficulty/data.length);
+
+                    $('#difficulty-info').html('Average Rating: ' + avgDifficulty + ' / 5');
+                } else {
+                    $('#difficulty-info').html('No ratings found.');
                 }
-
-                avgDifficulty = parseFloat(avgDifficulty/data.length);
-
-                $('#difficulty-info').html('Average Rating: ' + avgDifficulty + ' / 5');
             });
         }
 
         function loadRental() {
             $.get('/api/rental/' + locationId, function(data) {
-                console.log(data);
-                var hasRental = 0;
-                for (var i = 0; i < data.length; i++) {
-                    if (data[i].rental === true) {
-                        hasRental++;
+                if (data && data.length > 0) {
+                    var hasRental = 0;
+                    for (var i = 0; i < data.length; i++) {
+                        if (data[i].rental === true) {
+                            hasRental++;
+                        }
                     }
-                }
 
-                $('#rental-info').html(hasRental + ' out of ' + data.length + ' reviewer(s) say YES');
+                    $('#rental-info').html(hasRental + ' out of ' + data.length + ' reviewer(s) say YES');
+                } else {
+                    $('#rental-info').html('No rental info found.');
+                }
             });
         }
 
         function loadComment() {
             $.get('/api/comment/' + locationId, function(data) {
-                console.log(data);
-                var commentString = '';
-                for (var i = 0; i < data.length; i++) {
-                    commentString += '<div>' + data[i].comment + '</div>' + (i < data.length - 1 ? '<hr>' : '');
-                }
+                if (data && data.length > 0) {
+                    console.log(data);
+                    var commentString = '';
+                    for (var i = 0; i < data.length; i++) {
+                        commentString += '<div>' + data[i].comment + '</div>' + (i < data.length - 1 ? '<hr>' : '');
+                    }
 
-                $('#comment-info').html(commentString);
+                    $('#comment-info').html(commentString);
+                } else {
+                    $('#comment-info').html('No comments found.');
+                }
             });
         }
 
