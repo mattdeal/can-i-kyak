@@ -44,7 +44,7 @@
                         <fieldset>
                             <legend>Add Difficulty Rating</legend>
                             <div class="form-group">
-                                <label for="inputDifficulty" class="col-xs-12 control-label">Difficulty</label>
+                                <label for="select-difficulty" class="col-xs-12 control-label">Difficulty</label>
                                 <div class="col-xs-12">
                                     <select class="form-control" id="select-difficulty">
                                         <option>1</option>
@@ -90,7 +90,7 @@
                         <fieldset>
                             <legend>Add Rental Info</legend>
                             <div class="form-group">
-                                <label for="inputrental" class="col-xs-12 control-label">Has Rentals?</label>
+                                <label for="select-rental" class="col-xs-12 control-label">Has Rentals?</label>
                                 <div class="col-xs-12">
                                     <select class="form-control" id="select-rental">
                                         <option value="1">Yes</option>
@@ -133,9 +133,9 @@
                         <fieldset>
                             <legend>Add a Comment</legend>
                             <div class="form-group">
-                                <label for="inputcomment" class="col-xs-12 control-label">Comment</label>
+                                <label for="input-comment" class="col-xs-12 control-label">Comment</label>
                                 <div class="col-xs-12">
-                                    <input class="form-control" id="select-comment"></input>
+                                    <input class="form-control" id="input-comment"></input>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -155,66 +155,125 @@
 <!-- end details row -->
 
 <script>
-    //todo: document load ajax to load comments, ratings, Rentals
+    
+    // document load ajax to load comments, ratings, Rentals
     $(document).ready(function() {
         var pathArray = window.location.pathname.split('/');
         var locationId = pathArray[pathArray.length-1];
         console.log(locationId);
 
-        //todo: load difficulty
-        $.get('/api/difficulty/' + locationId, function(data) {
-            console.log(data);
-            var avgDifficulty = 0;
-            for (var i = 0; i < data.length; i++) {
-                avgDifficulty+=parseFloat(data[i].difficulty);
-            }
-
-            avgDifficulty = parseFloat(avgDifficulty/data.length);
-
-            $('#difficulty-info').html('Average Rating: ' + avgDifficulty + ' / 5');
-        });
-        
-        //todo: load rentals
-        $.get('/api/rental/' + locationId, function(data) {
-            console.log(data);
-            var hasRental = 0;
-            for (var i = 0; i < data.length; i++) {
-                if (data[i].rental === true) {
-                    hasRental++;
+        function loadDifficulty() {
+            $.get('/api/difficulty/' + locationId, function(data) {
+                console.log(data);
+                var avgDifficulty = 0;
+                for (var i = 0; i < data.length; i++) {
+                    avgDifficulty+=parseFloat(data[i].difficulty);
                 }
-            }
 
-            $('#rental-info').html(hasRental + ' out of ' + data.length + ' reviewer(s) say YES');
-        });
+                avgDifficulty = parseFloat(avgDifficulty/data.length);
 
-        //todo: load comments
-        $.get('/api/comment/' + locationId, function(data) {
-            console.log(data);
-            var commentString = '';
-            for (var i = 0; i < data.length; i++) {
-                commentString += '<div>' + data[i].comment + '</div>' + (i < data.length - 1 ? '<hr>' : '');
-            }
+                $('#difficulty-info').html('Average Rating: ' + avgDifficulty + ' / 5');
+            });
+        }
 
-            $('#comment-info').html(commentString);
-        });
+        function loadRental() {
+            $.get('/api/rental/' + locationId, function(data) {
+                console.log(data);
+                var hasRental = 0;
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].rental === true) {
+                        hasRental++;
+                    }
+                }
+
+                $('#rental-info').html(hasRental + ' out of ' + data.length + ' reviewer(s) say YES');
+            });
+        }
+
+        function loadComment() {
+            $.get('/api/comment/' + locationId, function(data) {
+                console.log(data);
+                var commentString = '';
+                for (var i = 0; i < data.length; i++) {
+                    commentString += '<div>' + data[i].comment + '</div>' + (i < data.length - 1 ? '<hr>' : '');
+                }
+
+                $('#comment-info').html(commentString);
+            });
+        }
+
+        // load difficulty
+       loadDifficulty();
+        
+        // load rentals
+        loadRental();
+        
+        // load comments
+        loadComment();
 
         // create difficulty
         $('#btn-add-difficulty').on('click', function(e) {
             e.preventDefault();
+            var difficulty = $('#select-difficulty').val();
 
+            if (difficulty) {
+                var difficultyObject = {
+                    locationId: locationId,
+                    difficulty: difficulty
+                };
+
+                $.post('/api/difficulty', difficultyObject, function(data) {
+                    // reload the difficulty rating to show new average
+                    loadDifficulty();
+
+                    // hide the add difficulty form
+                    $('#row-add-difficulty').hide();
+                });
+            }
         });
 
         // create difficulty
         $('#btn-add-rental').on('click', function(e) {
             e.preventDefault();
+            var rental = $('#select-rental').val().trim();
 
+            if (rental) {
+                var rentalObject = {
+                    locationId: locationId,
+                    rental: rental
+                };
+
+                $.post('/api/rental', rentalObject, function(data) {
+                    // reload the rental rating to show new average
+                    loadRental();
+
+                    // hide the add rental form
+                    $('#row-add-rental').hide();
+                });
+            }
         });
 
         // create difficulty
         $('#btn-add-comment').on('click', function(e) {
             e.preventDefault();
 
+            var comment = $('#input-comment').val().trim();
+
+            if (comment) {
+                var commentObj = {
+                    locationId: locationId,
+                    comment: comment
+                };
+
+                $.post('/api/comment', commentObj, function(data) {
+                    // load new comment
+                    loadComment();
+
+                    // hide the add comment form
+                    $('#row-add-comment').hide();
+                });
+            }
         });
     });
-    //todo: post ajax for comments, ratings, rentals
+
 </script>
