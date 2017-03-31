@@ -44,7 +44,7 @@
                         <fieldset>
                             <legend>Add Difficulty Rating</legend>
                             <div class="form-group">
-                                <label for="inputDifficulty" class="col-xs-12 control-label">Difficulty</label>
+                                <label for="select-difficulty" class="col-xs-12 control-label">Difficulty</label>
                                 <div class="col-xs-12">
                                     <select class="form-control" id="select-difficulty">
                                         <option>1</option>
@@ -90,7 +90,7 @@
                         <fieldset>
                             <legend>Add Rental Info</legend>
                             <div class="form-group">
-                                <label for="inputrental" class="col-xs-12 control-label">Has Rentals?</label>
+                                <label for="select-rental" class="col-xs-12 control-label">Has Rentals?</label>
                                 <div class="col-xs-12">
                                     <select class="form-control" id="select-rental">
                                         <option value="1">Yes</option>
@@ -133,9 +133,9 @@
                         <fieldset>
                             <legend>Add a Comment</legend>
                             <div class="form-group">
-                                <label for="inputcomment" class="col-xs-12 control-label">Comment</label>
+                                <label for="input-comment" class="col-xs-12 control-label">Comment</label>
                                 <div class="col-xs-12">
-                                    <input class="form-control" id="select-comment"></input>
+                                    <input class="form-control" id="input-comment"></input>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -257,6 +257,22 @@
         $('#btn-add-comment').on('click', function(e) {
             e.preventDefault();
 
+            var comment = $('#input-comment').val().trim();
+
+            if (comment) {
+                var commentObj = {
+                    locationId: locationId,
+                    comment: comment
+                };
+
+                $.post('/api/comment', commentObj, function(data) {
+                    // load new comment
+                    loadComment();
+
+                    // hide the add comment form
+                    $('#row-add-comment').hide();
+                });
+            }
         });
     });
 
