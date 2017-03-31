@@ -41,7 +41,7 @@ module.exports = function(app) {
           id: req.params.id
         }
       }).then(function(modelsLocation) {
-        res.render("location", modelsLocation.dataValues);
+        res.render("location-v", modelsLocation.dataValues);
       }) //end then.function
     }
   }); //end app.get
