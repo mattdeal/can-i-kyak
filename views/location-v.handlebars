@@ -1,0 +1,155 @@
+<style>
+    label {
+        color: white;
+        text-align: left !important;
+    }
+</style>
+
+<!-- begin header and image row -->
+<div class="row row-info">
+    <div class="row-location col-sm-12">
+        <div class="well1">
+            <h2 id="data-title"><strong>{{this.name}}</strong></h2>
+            <h3 id="data-address"><strong>{{this.street}} {{this.city}} {{this.state}} {{this.zip}}</strong></h3>
+        </div>
+
+        <div class="row-location-image">
+            <img class="img-responsive" src="{{this.imageUrl}}" alt="Image">
+        </div>
+    </div>
+</div>
+<!-- end header and image row -->
+
+<!-- begin details row -->
+<div class="row">
+    <!-- begin difficulty rating -->
+    <div class="col-xs-12 col-sm-12 col-md-4">
+        <div class="well">
+            <h3>Difficulty Rating</h3>
+            <!-- difficulty entries -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="well">
+                        <div id="difficulty-info">
+                            <!-- todo: dump difficulty rating here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- difficulty form -->
+            <div class="row" id="row-add-difficulty">
+                <div class="col-xs-12">
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <legend>Add Difficulty Rating</legend>
+                            <div class="form-group">
+                                <label for="inputDifficulty" class="col-xs-12 control-label">Difficulty</label>
+                                <div class="col-xs-12">
+                                    <select class="form-control" id="select-difficulty">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <button type="submit" id="btn-add-difficulty" class="btn btn-block btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>            
+        </div>       
+    </div>
+    <!-- end difficulty rating -->
+
+    <!-- begin rental info -->
+    <div class="col-xs-12 col-sm-12 col-md-4">
+        <div class="well">
+            <h3>Rentals</h3>            
+            <!-- rental entries -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="well">
+                        <div id="rental-info">
+                            <!-- todo: dump rental rating here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- rental form -->
+            <div class="row" id="row-add-rental">
+                <div class="col-xs-12">
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <legend>Add Rental Info</legend>
+                            <div class="form-group">
+                                <label for="inputrental" class="col-xs-12 control-label">Has Rentals?</label>
+                                <div class="col-xs-12">
+                                    <select class="form-control" id="select-rental">
+                                        <option value="1">Yes</option>
+                                        <option value="0">No</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <button type="submit" id="btn-add-rental" class="btn btn-block btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>            
+        </div>
+    </div>
+    <!-- end rental info -->
+
+    <!-- begin comments -->
+    <div class="col-xs-12 col-sm-12 col-md-4">
+        <div class="well">
+            <h3>Comments</h3>
+            <!-- comment entries -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="well">
+                        <div id="comment-info">
+                            <!-- todo: dump comment rating here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- comment form -->
+            <div class="row" id="row-add-comment">
+                <div class="col-xs-12">
+                    <form class="form-horizontal">
+                        <fieldset>
+                            <legend>Add a Comment</legend>
+                            <div class="form-group">
+                                <label for="inputcomment" class="col-xs-12 control-label">Comment</label>
+                                <div class="col-xs-12">
+                                    <input class="form-control" id="select-comment"></input>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <button type="submit" id="btn-add-comment" class="btn btn-block btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>            
+        </div>
+    </div>
+    <!-- end comments -->
+
+</div>
+<!-- end details row -->
